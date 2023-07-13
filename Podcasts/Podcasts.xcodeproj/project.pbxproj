@@ -60,7 +60,7 @@
 		38B6CA2A2A5F401000CC3482 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
-				38B6CA412A5F408400CC3482 /* Controller */,
+				38D50E0B2A6037F50004FDCF /* Controller */,
 				38B6CA3F2A5F403000CC3482 /* Files */,
 			);
 			path = Podcasts;
@@ -78,7 +78,7 @@
 			name = Files;
 			sourceTree = "<group>";
 		};
-		38B6CA412A5F408400CC3482 /* Controller */ = {
+		38D50E0B2A6037F50004FDCF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				38B6CA422A5F419F00CC3482 /* MainTabBarController.swift */,
@@ -86,7 +86,7 @@
 				38D50E042A6030430004FDCF /* SearchBarViewController.swift */,
 				38D50E062A6030570004FDCF /* DownloadsViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
