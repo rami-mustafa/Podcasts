@@ -16,6 +16,7 @@
 		38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E042A6030430004FDCF /* SearchBarViewController.swift */; };
 		38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E062A6030570004FDCF /* DownloadsViewController.swift */; };
 		38F589DB2A604F290070B0FF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 38F589DA2A604F290070B0FF /* Alamofire */; };
+		38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589DD2A60588F0070B0FF /* SearchBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		38D50E022A60302A0004FDCF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		38D50E042A6030430004FDCF /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		38D50E062A6030570004FDCF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		38F589DD2A60588F0070B0FF /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		38B6CA2A2A5F401000CC3482 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				38F589DC2A6058750070B0FF /* View */,
 				38D50E0B2A6037F50004FDCF /* Controller */,
 				38B6CA3F2A5F403000CC3482 /* Files */,
 			);
@@ -89,6 +92,14 @@
 				38D50E062A6030570004FDCF /* DownloadsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		38F589DC2A6058750070B0FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38F589DD2A60588F0070B0FF /* SearchBarCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */,
 				38B6CA2C2A5F401000CC3482 /* AppDelegate.swift in Sources */,
 				38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */,
 				38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */,
