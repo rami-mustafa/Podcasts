@@ -12,20 +12,23 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         setup()
         
+        tabBar.tintColor = .purple
     }
     
 }
 
 
-//    MARK: - Helers
+//    MARK: - Helers Functions
+
 extension MainTabBarController{
     
+    //    MARK:  Setup Functions
     private func setup(){
         viewControllers = [
-        
+            
+            createViewController(rootViewController: SearchBarViewController() , title: "Search", imageName: "magnifyingglass"),
             createViewController(rootViewController: FavoriteViewController() , title: "Favorites", imageName: "heart.fill"),
             createViewController(rootViewController: DownloadsViewController() , title: "Download", imageName: "square.and.arrow.down.on.square"),
-            createViewController(rootViewController: SearchBarViewController() , title: "Search", imageName: "magnifyingglass"),
 
             
         ]
@@ -37,17 +40,17 @@ extension MainTabBarController{
         let appearance = UINavigationBarAppearance()
         appearance.configureWithDefaultBackground()
         
-        let controller = UINavigationController(rootViewController: rootViewController)
-        controller.navigationBar.prefersLargeTitles = true
-        controller.navigationBar.compactAppearance = appearance
-        controller.navigationBar.standardAppearance = appearance
-        controller.navigationBar.scrollEdgeAppearance = appearance
-        controller.navigationBar.compactScrollEdgeAppearance = appearance
+        let navcontroller = UINavigationController(rootViewController: rootViewController)
+        navcontroller.navigationBar.prefersLargeTitles = true
+        navcontroller.navigationBar.compactAppearance = appearance
+        navcontroller.navigationBar.standardAppearance = appearance
+        navcontroller.navigationBar.scrollEdgeAppearance = appearance
+        navcontroller.navigationBar.compactScrollEdgeAppearance = appearance
         
-        controller.tabBarItem.title = title
-        controller.tabBarItem.image = UIImage(systemName: imageName)
+        navcontroller.tabBarItem.title = title
+        navcontroller.tabBarItem.image = UIImage(systemName: imageName)
         
-        return controller
+        return navcontroller
     }
     
     
