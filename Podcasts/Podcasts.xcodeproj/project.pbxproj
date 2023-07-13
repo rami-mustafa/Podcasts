@@ -15,8 +15,11 @@
 		38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E022A60302A0004FDCF /* FavoriteViewController.swift */; };
 		38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E042A6030430004FDCF /* SearchBarViewController.swift */; };
 		38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E062A6030570004FDCF /* DownloadsViewController.swift */; };
+		38D9E1D92A608E4800949713 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 38D9E1D82A608E4800949713 /* Kingfisher */; };
 		38F589DB2A604F290070B0FF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 38F589DA2A604F290070B0FF /* Alamofire */; };
 		38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589DD2A60588F0070B0FF /* SearchBarCell.swift */; };
+		38F589E12A6084810070B0FF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589E02A6084810070B0FF /* Search.swift */; };
+		38F589E42A60850B0070B0FF /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589E32A60850B0070B0FF /* SearchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,8 @@
 		38D50E042A6030430004FDCF /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		38D50E062A6030570004FDCF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		38F589DD2A60588F0070B0FF /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
+		38F589E02A6084810070B0FF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		38F589E32A60850B0070B0FF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D9E1D92A608E4800949713 /* Kingfisher in Frameworks */,
 				38F589DB2A604F290070B0FF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +70,8 @@
 		38B6CA2A2A5F401000CC3482 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				38F589E22A6084ED0070B0FF /* Service */,
+				38F589DF2A60846E0070B0FF /* Model */,
 				38F589DC2A6058750070B0FF /* View */,
 				38D50E0B2A6037F50004FDCF /* Controller */,
 				38B6CA3F2A5F403000CC3482 /* Files */,
@@ -102,6 +110,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		38F589DF2A60846E0070B0FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38F589E02A6084810070B0FF /* Search.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38F589E22A6084ED0070B0FF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				38F589E32A60850B0070B0FF /* SearchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +144,7 @@
 			name = Podcasts;
 			packageProductDependencies = (
 				38F589DA2A604F290070B0FF /* Alamofire */,
+				38D9E1D82A608E4800949713 /* Kingfisher */,
 			);
 			productName = Podcasts;
 			productReference = 38B6CA282A5F401000CC3482 /* Podcasts.app */;
@@ -151,6 +176,7 @@
 			mainGroup = 38B6CA1F2A5F401000CC3482;
 			packageReferences = (
 				38F589D92A604F290070B0FF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 38B6CA292A5F401000CC3482 /* Products */;
 			projectDirPath = "";
@@ -178,11 +204,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F589E42A60850B0070B0FF /* SearchService.swift in Sources */,
 				38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */,
 				38B6CA2C2A5F401000CC3482 /* AppDelegate.swift in Sources */,
 				38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */,
 				38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */,
 				38B6CA2E2A5F401000CC3482 /* SceneDelegate.swift in Sources */,
+				38F589E12A6084810070B0FF /* Search.swift in Sources */,
 				38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */,
 				38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */,
 			);
@@ -396,6 +424,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		38F589D92A604F290070B0FF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -407,6 +443,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		38D9E1D82A608E4800949713 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		38F589DA2A604F290070B0FF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 38F589D92A604F290070B0FF /* XCRemoteSwiftPackageReference "Alamofire" */;
