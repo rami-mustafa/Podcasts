@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 private let reuseIdentifier = "SearchCell"
 
 class SearchBarViewController: UITableViewController {
@@ -25,7 +26,8 @@ extension SearchBarViewController{
     
     private func style(){
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(SearchBarCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 130
         
         let searchBarController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchBarController
@@ -47,9 +49,8 @@ extension SearchBarViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .red
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SearchBarCell
+ 
         return cell
     }
     
@@ -59,7 +60,12 @@ extension SearchBarViewController {
 // MARK: - UISearchBarDelegate
 extension  SearchBarViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        
+        AF.request("https://itunes.apple.com/search?term=jack+johnson&limit=25.").responseData { response in
+            print(String(data: response.data!, encoding: .utf8))
+        }
+       
+        
     }
 }
 
