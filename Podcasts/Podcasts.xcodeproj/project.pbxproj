@@ -16,6 +16,7 @@
 		38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E042A6030430004FDCF /* SearchBarViewController.swift */; };
 		38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E062A6030570004FDCF /* DownloadsViewController.swift */; };
 		38D9E1D92A608E4800949713 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 38D9E1D82A608E4800949713 /* Kingfisher */; };
+		38D9E1DC2A608F4000949713 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D9E1DB2A608F4000949713 /* SearchViewModel.swift */; };
 		38F589DB2A604F290070B0FF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 38F589DA2A604F290070B0FF /* Alamofire */; };
 		38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589DD2A60588F0070B0FF /* SearchBarCell.swift */; };
 		38F589E12A6084810070B0FF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F589E02A6084810070B0FF /* Search.swift */; };
@@ -33,6 +34,7 @@
 		38D50E022A60302A0004FDCF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		38D50E042A6030430004FDCF /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		38D50E062A6030570004FDCF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		38D9E1DB2A608F4000949713 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		38F589DD2A60588F0070B0FF /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
 		38F589E02A6084810070B0FF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		38F589E32A60850B0070B0FF /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		38B6CA2A2A5F401000CC3482 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				38D9E1DA2A608F2600949713 /* ViewModel */,
 				38F589E22A6084ED0070B0FF /* Service */,
 				38F589DF2A60846E0070B0FF /* Model */,
 				38F589DC2A6058750070B0FF /* View */,
@@ -100,6 +103,14 @@
 				38D50E062A6030570004FDCF /* DownloadsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		38D9E1DA2A608F2600949713 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				38D9E1DB2A608F4000949713 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		38F589DC2A6058750070B0FF /* View */ = {
@@ -210,6 +221,7 @@
 				38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */,
 				38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */,
 				38B6CA2E2A5F401000CC3482 /* SceneDelegate.swift in Sources */,
+				38D9E1DC2A608F4000949713 /* SearchViewModel.swift in Sources */,
 				38F589E12A6084810070B0FF /* Search.swift in Sources */,
 				38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */,
 				38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */,
