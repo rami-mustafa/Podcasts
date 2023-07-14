@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchBarCell: UITableViewCell {
     // MARK: - Properties
+    var result: Podcast?{
+           didSet{ configure() }
+       }
     
     private let imagePhoneView: UIImageView = {
         
@@ -93,5 +97,16 @@ extension SearchBarCell {
         ])
         
      }
+    
+    private func configure(){
+        guard let result = self.result else { return }
+        
+        let viewModel = SearchViewModel(podcast: result)
+
+        trackName.text = viewModel.trackName
+        trackCount.text = viewModel.trackCountString
+        artistName.text = viewModel.artistName
+        imagePhoneView.kf.setImage(with: viewModel.photoImageUrl )
+    }
 }
 
