@@ -30,9 +30,10 @@ class SearchBarViewController: UITableViewController {
 extension SearchBarViewController{
     
     private func style(){
-        
+        self.definesPresentationContext = true
         tableView.register(SearchBarCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 130
+        
         
         let searchBarController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchBarController
@@ -42,6 +43,9 @@ extension SearchBarViewController{
     }
     private func setup(){
  
+        
+        
+        
     }
     
 }
@@ -59,9 +63,11 @@ extension SearchBarViewController {
         return cell
     }
     
+    
+    
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableView
 extension SearchBarViewController {
    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        let label = UILabel()
@@ -71,10 +77,23 @@ extension SearchBarViewController {
        label.textColor = .systemPurple
        return label
    }
+    
    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//       ternary operator
        return self.searchResult.count == 0 ? 80 : 0
    }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        let episodesController = EpisodesController()
+        let podcast = self.searchResult[indexPath.row]
+        episodesController.podcast = podcast
+        navigationController?.pushViewController(episodesController, animated: true)
+        
+        print(indexPath.row)
+    }
+    
+    
 }
 
 
@@ -95,4 +114,3 @@ extension  SearchBarViewController: UISearchBarDelegate {
 
 
 
-// MARK: - UICollectionViewDelegateFlowLayout
