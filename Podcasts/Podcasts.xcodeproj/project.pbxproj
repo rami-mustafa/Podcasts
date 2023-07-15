@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3856E5002A62FED40063B27C /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E4FF2A62FED40063B27C /* CMTime.swift */; };
+		3856E5022A63052C0063B27C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E5012A63052C0063B27C /* Episode.swift */; };
+		3856E5042A632F020063B27C /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E5032A632F020063B27C /* EpisodeCellViewModel.swift */; };
 		38B6CA2C2A5F401000CC3482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6CA2B2A5F401000CC3482 /* AppDelegate.swift */; };
 		38B6CA2E2A5F401000CC3482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6CA2D2A5F401000CC3482 /* SceneDelegate.swift */; };
 		38B6CA352A5F401000CC3482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B6CA342A5F401000CC3482 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3856E4FF2A62FED40063B27C /* CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
+		3856E5012A63052C0063B27C /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		3856E5032A632F020063B27C /* EpisodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellViewModel.swift; sourceTree = "<group>"; };
 		38B6CA282A5F401000CC3482 /* Podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B6CA2B2A5F401000CC3482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38B6CA2D2A5F401000CC3482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3856E4FE2A62FE5A0063B27C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3856E4FF2A62FED40063B27C /* CMTime.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		38B6CA1F2A5F401000CC3482 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +94,7 @@
 		38B6CA2A2A5F401000CC3482 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				3856E4FE2A62FE5A0063B27C /* Extension */,
 				38D9E1DA2A608F2600949713 /* ViewModel */,
 				38F589E22A6084ED0070B0FF /* Service */,
 				38F589DF2A60846E0070B0FF /* Model */,
@@ -118,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				38D9E1DB2A608F4000949713 /* SearchViewModel.swift */,
+				3856E5032A632F020063B27C /* EpisodeCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				38F589DD2A60588F0070B0FF /* SearchBarCell.swift */,
+				38C9B2DB2A61D9E70097909A /* EpisodeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				38F589E02A6084810070B0FF /* Search.swift */,
-				38C9B2DB2A61D9E70097909A /* EpisodeCell.swift */,
+				3856E5012A63052C0063B27C /* Episode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,13 +250,16 @@
 				38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */,
 				38B6CA2C2A5F401000CC3482 /* AppDelegate.swift in Sources */,
 				38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */,
+				3856E5002A62FED40063B27C /* CMTime.swift in Sources */,
 				38C9B2DC2A61D9E70097909A /* EpisodeCell.swift in Sources */,
 				38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */,
 				38B6CA2E2A5F401000CC3482 /* SceneDelegate.swift in Sources */,
 				38D9E1DC2A608F4000949713 /* SearchViewModel.swift in Sources */,
+				3856E5042A632F020063B27C /* EpisodeCellViewModel.swift in Sources */,
 				38F589E12A6084810070B0FF /* Search.swift in Sources */,
 				38C9B2E12A61DD1E0097909A /* EpisodeService.swift in Sources */,
 				38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */,
+				3856E5022A63052C0063B27C /* Episode.swift in Sources */,
 				38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
