@@ -12,6 +12,10 @@
 		38B6CA352A5F401000CC3482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B6CA342A5F401000CC3482 /* Assets.xcassets */; };
 		38B6CA382A5F401000CC3482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B6CA362A5F401000CC3482 /* LaunchScreen.storyboard */; };
 		38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B6CA422A5F419F00CC3482 /* MainTabBarController.swift */; };
+		38C9B2DA2A61B68D0097909A /* EpisodesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C9B2D92A61B68D0097909A /* EpisodesController.swift */; };
+		38C9B2DC2A61D9E70097909A /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C9B2DB2A61D9E70097909A /* EpisodeCell.swift */; };
+		38C9B2DF2A61DCFC0097909A /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38C9B2DE2A61DCFC0097909A /* FeedKit */; };
+		38C9B2E12A61DD1E0097909A /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C9B2E02A61DD1E0097909A /* EpisodeService.swift */; };
 		38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E022A60302A0004FDCF /* FavoriteViewController.swift */; };
 		38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E042A6030430004FDCF /* SearchBarViewController.swift */; };
 		38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D50E062A6030570004FDCF /* DownloadsViewController.swift */; };
@@ -31,6 +35,9 @@
 		38B6CA372A5F401000CC3482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38B6CA392A5F401000CC3482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B6CA422A5F419F00CC3482 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		38C9B2D92A61B68D0097909A /* EpisodesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesController.swift; sourceTree = "<group>"; };
+		38C9B2DB2A61D9E70097909A /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		38C9B2E02A61DD1E0097909A /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
 		38D50E022A60302A0004FDCF /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		38D50E042A6030430004FDCF /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		38D50E062A6030570004FDCF /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C9B2DF2A61DCFC0097909A /* FeedKit in Frameworks */,
 				38D9E1D92A608E4800949713 /* Kingfisher in Frameworks */,
 				38F589DB2A604F290070B0FF /* Alamofire in Frameworks */,
 			);
@@ -99,8 +107,9 @@
 			children = (
 				38B6CA422A5F419F00CC3482 /* MainTabBarController.swift */,
 				38D50E022A60302A0004FDCF /* FavoriteViewController.swift */,
-				38D50E042A6030430004FDCF /* SearchBarViewController.swift */,
 				38D50E062A6030570004FDCF /* DownloadsViewController.swift */,
+				38D50E042A6030430004FDCF /* SearchBarViewController.swift */,
+				38C9B2D92A61B68D0097909A /* EpisodesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				38F589E02A6084810070B0FF /* Search.swift */,
+				38C9B2DB2A61D9E70097909A /* EpisodeCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				38F589E32A60850B0070B0FF /* SearchService.swift */,
+				38C9B2E02A61DD1E0097909A /* EpisodeService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -156,6 +167,7 @@
 			packageProductDependencies = (
 				38F589DA2A604F290070B0FF /* Alamofire */,
 				38D9E1D82A608E4800949713 /* Kingfisher */,
+				38C9B2DE2A61DCFC0097909A /* FeedKit */,
 			);
 			productName = Podcasts;
 			productReference = 38B6CA282A5F401000CC3482 /* Podcasts.app */;
@@ -188,6 +200,7 @@
 			packageReferences = (
 				38F589D92A604F290070B0FF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				38C9B2DD2A61DCFC0097909A /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			productRefGroup = 38B6CA292A5F401000CC3482 /* Products */;
 			projectDirPath = "";
@@ -216,13 +229,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F589E42A60850B0070B0FF /* SearchService.swift in Sources */,
+				38C9B2DA2A61B68D0097909A /* EpisodesController.swift in Sources */,
 				38F589DE2A60588F0070B0FF /* SearchBarCell.swift in Sources */,
 				38B6CA2C2A5F401000CC3482 /* AppDelegate.swift in Sources */,
 				38D50E052A6030430004FDCF /* SearchBarViewController.swift in Sources */,
+				38C9B2DC2A61D9E70097909A /* EpisodeCell.swift in Sources */,
 				38D50E072A6030570004FDCF /* DownloadsViewController.swift in Sources */,
 				38B6CA2E2A5F401000CC3482 /* SceneDelegate.swift in Sources */,
 				38D9E1DC2A608F4000949713 /* SearchViewModel.swift in Sources */,
 				38F589E12A6084810070B0FF /* Search.swift in Sources */,
+				38C9B2E12A61DD1E0097909A /* EpisodeService.swift in Sources */,
 				38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */,
 				38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */,
 			);
@@ -436,6 +452,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		38C9B2DD2A61DCFC0097909A /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -455,6 +479,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		38C9B2DE2A61DCFC0097909A /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38C9B2DD2A61DCFC0097909A /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
 		38D9E1D82A608E4800949713 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 38D9E1D72A608E4800949713 /* XCRemoteSwiftPackageReference "Kingfisher" */;
