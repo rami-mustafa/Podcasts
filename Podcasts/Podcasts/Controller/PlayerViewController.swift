@@ -56,6 +56,7 @@ class PlayerViewController: UIViewController {
         label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
         return label
     }()
+    
     private let userLabel: UILabel = {
         let label = UILabel()
         label.text = "user"
@@ -70,9 +71,10 @@ class PlayerViewController: UIViewController {
         button.setImage(UIImage(systemName: "goforward.30"), for: .normal)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        //  button.addTarget(self, action: #selector(handleGoForWardButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleGoForWardButton), for: .touchUpInside)
         return button
     }()
+    
     private lazy var goPlayButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .black
@@ -88,7 +90,7 @@ class PlayerViewController: UIViewController {
         button.setImage(UIImage(systemName: "gobackward.15"), for: .normal)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        // button.addTarget(self, action: #selector(handleGoBackWardButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleGoBackWardButton), for: .touchUpInside)
         return button
     }()
     
@@ -98,7 +100,7 @@ class PlayerViewController: UIViewController {
         let slider = UISlider()
         slider.maximumValue = 100
         slider.minimumValue = 0
-        //           slider.addTarget(self, action: #selector(handleVolumeSliderView), for: .valueChanged)
+        slider.addTarget(self, action: #selector(handleVolumeSliderView), for: .valueChanged)
         return slider
     }()
     private let plusImageView: UIImageView = {
@@ -128,13 +130,38 @@ class PlayerViewController: UIViewController {
         configureUI()
         
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        player.pause()
     }
     
 }
 // MARK: - Helpers
 extension PlayerViewController {
+    
+    fileprivate func updateTimeLabel(){
+        let interval = CMTimeMake(value: 1, timescale: 2)
+        player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
+            
+            self.startLabel.text = time.formatString()
+            let endTimeSecond = self.player.currentItem?.duration
+            self.endLabel.text = endTimeSecond?.formatString()
+            self.updateSlider()
+        }
+        
+    }
+    
+    fileprivate func updateSlider(){
+        let currentTimeSecond = CMTimeGetSeconds(player.currentTime())
+        let durationTime = CMTimeGetSeconds(player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
+        let resultSecondTime = currentTimeSecond / durationTime
+        self.sliderView.value = Float(resultSecondTime)
+    }
+    
     
     private func startPlayEpisode() {
         guard let url = URL(string: episode.streamUrl) else {return}
@@ -143,8 +170,15 @@ extension PlayerViewController {
         player.play()
         self.goPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         self.volumeSliderView.value = 40
+        updateTimeLabel()
     }
-
+    
+    private func updateForward(value: Int64){
+        let exampleTime = CMTime(value: value, timescale: 1)
+        let seekTime = CMTimeAdd(player.currentTime(), exampleTime)
+        player.seek(to: seekTime)
+    }
+    
     
     
     
@@ -187,29 +221,40 @@ extension PlayerViewController {
     
     private func configureUI(){
         self.episodeImageView.kf.setImage(with: URL(string: episode.imageUrl ?? ""))
-           self.nameLabel.text = episode.title
-           self.userLabel.text = episode.author
-       }
+        self.nameLabel.text = episode.title
+        self.userLabel.text = episode.author
+    }
 }
 
 //MARK: - Selectors
 extension PlayerViewController {
-
+    
     @objc private func handleGoPlayButton(){
-          if player.timeControlStatus == .paused{
-              player.play()
-              self.goPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-          }else{
-              player.pause()
-              self.goPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-          }
-          
-      }
+        if player.timeControlStatus == .paused{
+            player.play()
+            self.goPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        }else{
+            player.pause()
+            self.goPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
+        
+    }
     
     @objc private func hanleCloseButton(){
-          player.pause()
-          self.dismiss(animated: true)
-      }
+        player.pause()
+        self.dismiss(animated: true)
+    }
+    
+    
+    @objc private func handleVolumeSliderView(_ sender: UISlider){
+        player.volume = sender.value
+    }
+    @objc private func handleGoBackWardButton(_ sender: UIButton){
+        updateForward(value: -15)
+    }
+    @objc private func handleGoForWardButton(_ sender: UIButton){
+        updateForward(value: 30)
+    }
     
 }
 
