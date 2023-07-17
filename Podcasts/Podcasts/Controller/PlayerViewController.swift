@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import Kingfisher
 
 class PlayerViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class PlayerViewController: UIViewController {
     private lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
-        //button.addTarget(self, action: #selector(hanleCloseButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(hanleCloseButton), for: .touchUpInside)
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return button
     }()
@@ -76,7 +77,7 @@ class PlayerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.tintColor = .black
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        //  button.addTarget(self, action: #selector(handleGoPlayButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleGoPlayButton), for: .touchUpInside)
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
         return button
@@ -112,6 +113,10 @@ class PlayerViewController: UIViewController {
         imageView.tintColor = .lightGray
         return imageView
     }()
+    private let player: AVPlayer = {
+        let player = AVPlayer()
+        return player
+    }()
     
     // MARK: - Lifecycle
     init(episode: Episode) {
@@ -119,6 +124,8 @@ class PlayerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         style()
         layout()
+        startPlayEpisode()
+        configureUI()
         
     }
     required init?(coder: NSCoder) {
@@ -126,9 +133,20 @@ class PlayerViewController: UIViewController {
     }
     
 }
-
 // MARK: - Helpers
 extension PlayerViewController {
+    
+    private func startPlayEpisode() {
+        guard let url = URL(string: episode.streamUrl) else {return}
+        let playerItem = AVPlayerItem(url: url)
+        player.replaceCurrentItem(with: playerItem)
+        player.play()
+        self.goPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        self.volumeSliderView.value = 40
+    }
+
+    
+    
     
     private func style(){
         view.backgroundColor = .white
@@ -166,5 +184,32 @@ extension PlayerViewController {
             mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32)
         ])
     }
+    
+    private func configureUI(){
+        self.episodeImageView.kf.setImage(with: URL(string: episode.imageUrl ?? ""))
+           self.nameLabel.text = episode.title
+           self.userLabel.text = episode.author
+       }
+}
+
+//MARK: - Selectors
+extension PlayerViewController {
+
+    @objc private func handleGoPlayButton(){
+          if player.timeControlStatus == .paused{
+              player.play()
+              self.goPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+          }else{
+              player.pause()
+              self.goPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+          }
+          
+      }
+    
+    @objc private func hanleCloseButton(){
+          player.pause()
+          self.dismiss(animated: true)
+      }
+    
 }
 
