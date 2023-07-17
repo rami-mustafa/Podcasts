@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3837E7E12A6476E0007972C7 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837E7E02A6476E0007972C7 /* PlayerViewController.swift */; };
 		3856E5002A62FED40063B27C /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E4FF2A62FED40063B27C /* CMTime.swift */; };
 		3856E5022A63052C0063B27C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E5012A63052C0063B27C /* Episode.swift */; };
 		3856E5042A632F020063B27C /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856E5032A632F020063B27C /* EpisodeCellViewModel.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3837E7E02A6476E0007972C7 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		3856E4FF2A62FED40063B27C /* CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		3856E5012A63052C0063B27C /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		3856E5032A632F020063B27C /* EpisodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellViewModel.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				38D50E062A6030570004FDCF /* DownloadsViewController.swift */,
 				38D50E042A6030430004FDCF /* SearchBarViewController.swift */,
 				38C9B2D92A61B68D0097909A /* EpisodesController.swift */,
+				3837E7E02A6476E0007972C7 /* PlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				38D50E032A60302A0004FDCF /* FavoriteViewController.swift in Sources */,
 				3856E5022A63052C0063B27C /* Episode.swift in Sources */,
 				38B6CA432A5F419F00CC3482 /* MainTabBarController.swift in Sources */,
+				3837E7E12A6476E0007972C7 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

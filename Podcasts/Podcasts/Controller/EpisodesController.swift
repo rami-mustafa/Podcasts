@@ -75,4 +75,11 @@ extension EpisodesController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let episode = self.episodeResult[indexPath.item]
+        let controller = PlayerViewController(episode: episode)
+        self.present(controller, animated: true)
+        
+    }
 }
