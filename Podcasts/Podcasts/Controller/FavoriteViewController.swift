@@ -52,4 +52,19 @@ extension FavoriteViewController{
 }
 
 
-
+// MARK: - UICollectionViewDelegateFlowLayout
+extension FavoriteViewController: UICollectionViewDelegateFlowLayout{
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       let width = (view.frame.width - 3 * 16) / 2
+       return .init(width: width, height: width + 46)
+   }
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+       return 16
+   }
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+       return 16
+   }
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+       return .init(top: 16, left: 16, bottom: 16, right: 16)
+   }
+}
