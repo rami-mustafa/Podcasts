@@ -179,6 +179,7 @@ extension PlayerViewController {
             let endTimeSecond = self.player.currentItem?.duration
             self.endLabel.text = endTimeSecond?.formatString()
             self.updateSlider()
+            
         }
         
     }
