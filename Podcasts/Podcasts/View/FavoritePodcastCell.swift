@@ -24,7 +24,24 @@ class FavoritePodcastCell : UICollectionViewCell{
            setup()
            layout()
         
-    
+        nameLabel.text = "Podcast name"
+        artistNameLabel.text = "Artist Name"
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        
+        
+        let stackView = UIStackView(arrangedSubviews: [imageView,nameLabel,artistNameLabel])
+        stackView.axis = .vertical
+//        enables auto layout
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(stackView)
+        
+        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
