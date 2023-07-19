@@ -8,6 +8,7 @@
 import UIKit
 import AVKit
 import Kingfisher
+import MediaPlayer
 
 class PlayerViewController: UIViewController {
     
@@ -120,6 +121,8 @@ class PlayerViewController: UIViewController {
         return player
     }()
     
+    
+    
     // MARK: - Lifecycle
     init(episode: Episode) {
         self.episode = episode
@@ -128,6 +131,11 @@ class PlayerViewController: UIViewController {
         layout()
         startPlayEpisode()
         configureUI()
+        
+        
+        setupAudioSession()
+        setupRemoteControl()
+
         
     }
     
@@ -142,6 +150,26 @@ class PlayerViewController: UIViewController {
 }
 // MARK: - Helpers
 extension PlayerViewController {
+    
+    
+    fileprivate func setupRemoteControl() {
+    }
+    
+    fileprivate func setupAudioSession(){
+        print(" setupAudioSession()")
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let sessionErr {
+            print("Failed to activate session:",sessionErr)
+        }
+        
+    }
+
+    
+    
+    
     
     fileprivate func updateTimeLabel(){
         let interval = CMTimeMake(value: 1, timescale: 2)
@@ -251,7 +279,7 @@ extension PlayerViewController {
     }
     @objc private func handleGoBackWardButton(_ sender: UIButton){
         updateForward(value: -15)
-    }
+     }
     @objc private func handleGoForWardButton(_ sender: UIButton){
         updateForward(value: 30)
     }

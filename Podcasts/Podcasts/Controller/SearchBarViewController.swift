@@ -33,7 +33,7 @@ extension SearchBarViewController{
         self.definesPresentationContext = true
         tableView.register(SearchBarCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 130
-        
+ 
         
         let searchBarController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchBarController
