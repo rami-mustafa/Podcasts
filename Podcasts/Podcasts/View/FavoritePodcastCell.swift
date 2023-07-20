@@ -5,42 +5,43 @@
 //  Created by Ghaiath Alhereh on 18.07.23.
 //
 
- 
+
 import UIKit
 
 
 class FavoritePodcastCell : UICollectionViewCell{
     
     // MARK: - Properties
-
-    let imageView = UIImageView(image: UIImage(named: "rami")!)
-    let nameLabel = UILabel()
-    let artistNameLabel = UILabel()
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.customMode()
+        imageView.backgroundColor = .systemPurple
+        return imageView
+    }()
     
+    private let podcastNameLabel: UILabel = {
+         let label = UILabel()
+          label.text = "Podcast Name"
+          label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+          label.textColor = .black
+          return label
+      }()
+      private let podcastArtistNameLabel: UILabel = {
+         let label = UILabel()
+          label.text = "Podcast Artist Name"
+          label.font = UIFont.systemFont(ofSize: 14)
+          label.textColor = .lightGray
+          return label
+      }()
     
+    private var fullStackView: UIStackView!
+    
+    //    MARK: - Lifecyle
     override init(frame: CGRect) {
-          super.init(frame: frame)
-           setup()
-           layout()
-        
-        nameLabel.text = "Podcast name"
-        artistNameLabel.text = "Artist Name"
-        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-        
-        
-        let stackView = UIStackView(arrangedSubviews: [imageView,nameLabel,artistNameLabel])
-        stackView.axis = .vertical
-//        enables auto layout
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(stackView)
-        
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
+        super.init(frame: frame)
+        setupViews()
+        stylizeUI()
     }
     
     required init?(coder: NSCoder) {
@@ -48,19 +49,41 @@ class FavoritePodcastCell : UICollectionViewCell{
     }
     
     
-
+    
 }
 
 
 extension FavoritePodcastCell{
-
-   private func setup(){
-       backgroundColor = .green
-   }
     
-    private func layout(){
+    private func setupViews(){
+        
+        
+        
+        fullStackView = UIStackView(arrangedSubviews: [imageView,podcastNameLabel,podcastArtistNameLabel])
+        fullStackView.axis = .vertical
+        //  enables auto layout
+        fullStackView.translatesAutoresizingMaskIntoConstraints = false
+      
         
     }
+    
+    private func stylizeUI(){
+        
+        addSubview(fullStackView)
+
+        NSLayoutConstraint.activate([
+            
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
+            
+            fullStackView.topAnchor.constraint(equalTo: topAnchor),
+            fullStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+       
+        
+     
+     }
 }
 
 
