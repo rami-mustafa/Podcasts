@@ -5,12 +5,11 @@
 //  Created by Ghaiath Alhereh on 13.07.23.
 
 import UIKit
-
+private let cellId = "cellId"
 class FavoriteViewController: UICollectionViewController {
     
     // MARK: - Properties
     
-    fileprivate let cellId = "cellId"
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -68,3 +67,5 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout{
        return .init(top: 16, left: 16, bottom: 16, right: 16)
    }
 }
+
+

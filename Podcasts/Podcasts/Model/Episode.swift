@@ -22,9 +22,7 @@ struct Episode: Codable {
         self.streamUrl = feedItem.enclosure?.attributes?.url ?? ""
         self.title = feedItem.title ?? ""
         self.pubDate = feedItem.pubDate ?? Date()
-       
         self.description = feedItem.iTunes?.iTunesSubtitle ?? feedItem.description ?? ""
-       
         self.author = feedItem.iTunes?.iTunesAuthor ?? ""
         self.imageUrl = feedItem.iTunes?.iTunesImage?.attributes?.href ?? ""
     }

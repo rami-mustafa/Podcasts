@@ -6,26 +6,49 @@
 //
 
 import UIKit
+
+
+
+private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 private let reuseIdentifier = "EpisodeCell"
+private let favoritedPodcastKey = "favoritedPodcastKey"
 
 class EpisodesController: UITableViewController {
-   
+    
+    private let context = appDelegate.persistentContainer.viewContext
     var episodeResult: [Episode] = []{
         didSet{
             self.tableView.reloadData()
         }
     }
-
+    
     var podcast: Podcast? {
         didSet {
             navigationItem.title = podcast?.trackName
         }
     }
     
+    private var resultCoreDataItems: [PodcastCoreData] = []{
+        didSet{
+            let isValue = resultCoreDataItems.contains(where: {$0.feedUrl == podcast?.feedUrl})
+            if isValue {
+                isFavorite = true
+            }else{
+                isFavorite = false
+            }
+        }
+    }
+    
+    private var isFavorite = false {
+        didSet{
+            setupNavigationBarButtons()
+        }
+    }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItem.title = "Episodes"
         setup()
         fetchData()
     }
@@ -48,10 +71,55 @@ extension EpisodesController {
 
 // MARK: - Halpers
 extension EpisodesController {
+    
     private func setup(){
         tableView.register(EpisodeCell.self, forCellReuseIdentifier: reuseIdentifier)
+        setupNavigationBarButtons()
+        fetchCoreData()
+    }
+    
+    private func setupNavigationBarButtons(){
+        
+        if isFavorite {
+            navigationItem.rightBarButtonItems = [
+                UIBarButtonItem(image: UIImage(systemName: "heart.fill")?.withTintColor(.systemPink) , style: .plain, target: self, action: #selector(handleSaveFavorite)),
+            ]
+        } else {
+            navigationItem.rightBarButtonItems = [
+                UIBarButtonItem(image: UIImage(systemName: "heart")?.withTintColor(.systemPink) , style: .plain, target: self, action: #selector(handleSaveFavorite)),
+            ]
+        }
         
     }
+    
+    private func deleteCoreData(){
+        let value = resultCoreDataItems.filter({$0.feedUrl == podcast?.feedUrl})
+        context.delete(value.first!)
+        self.isFavorite = false
+    }
+    
+    
+    private func addCoreData(){
+        let model = PodcastCoreData(context: context)
+        model.feedUrl = self.podcast?.feedUrl
+        model.artworkUrl600 = self.podcast?.artworkUrl600
+        model.artistName = self.podcast?.artistName
+        model.trackName = self.podcast?.trackName
+        appDelegate.saveContext()
+        isFavorite = true
+    }
+    
+    private func fetchCoreData(){
+        let fetchRequest = PodcastCoreData.fetchRequest()
+        do {
+            let result = try context.fetch(fetchRequest)
+            self.resultCoreDataItems = result
+        } catch  {
+            
+        }
+        
+    }
+    
     
 }
 
@@ -83,3 +151,19 @@ extension EpisodesController{
         
     }
 }
+
+//MARK: - Selectors
+
+extension EpisodesController {
+    
+    @objc private func handleSaveFavorite(){
+        if isFavorite{
+            deleteCoreData()
+        }else{
+            addCoreData()
+        }
+    }
+    
+}
+
+
