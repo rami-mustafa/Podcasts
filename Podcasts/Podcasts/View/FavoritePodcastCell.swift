@@ -7,11 +7,17 @@
 
 
 import UIKit
+import Kingfisher
 
 
 class FavoritePodcastCell : UICollectionViewCell{
     
     // MARK: - Properties
+    
+    var podcastCoreData: PodcastCoreData?{
+         didSet{ configure() }
+     }
+    
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -57,8 +63,6 @@ extension FavoritePodcastCell{
     
     private func setupViews(){
         
-        
-        
         fullStackView = UIStackView(arrangedSubviews: [imageView,podcastNameLabel,podcastArtistNameLabel])
         fullStackView.axis = .vertical
         //  enables auto layout
@@ -80,10 +84,15 @@ extension FavoritePodcastCell{
             fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
-       
-        
-     
      }
+    
+    private func configure(){
+           guard let podcastCoreData = self.podcastCoreData else { return }
+           let viewModel = FavoriteCellViewModel(podcastCoreData: podcastCoreData)
+        self.imageView.kf.setImage(with: viewModel.imageUrlPodcast)
+           self.podcastNameLabel.text = viewModel.podcastNameLabel
+           self.podcastArtistNameLabel.text = viewModel.podcastArtistName
+       }
 }
 
 
