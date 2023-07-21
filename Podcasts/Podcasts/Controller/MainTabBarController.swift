@@ -40,9 +40,8 @@ extension MainTabBarController{
         let favoritesController = FavoriteViewController(collectionViewLayout: layout)
         
         viewControllers = [
-            
-            createViewController(rootViewController: SearchBarViewController() , title: "Search", imageName: "magnifyingglass"),
             createViewController(rootViewController: favoritesController , title: "Favorites", imageName: "heart.fill"),
+            createViewController(rootViewController: SearchBarViewController() , title: "Search", imageName: "magnifyingglass"),
             createViewController(rootViewController: DownloadsViewController() , title: "Download", imageName: "square.and.arrow.down.on.square"),
             
             

@@ -11,6 +11,7 @@ struct Search: Decodable {
     let resultCount: Int
     let results: [Podcast]
 }
+
 struct Podcast: Decodable {
     var trackName: String?
     var artistName: String
