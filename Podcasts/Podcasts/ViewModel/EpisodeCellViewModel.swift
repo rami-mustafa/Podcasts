@@ -17,15 +17,15 @@ struct EpisodeCellViewModel {
     }
     
     var title: String?{
-           return episode.title
-       }
-       var description: String?{
-           return episode.description
-       }
-       var pubDate: String?{
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "MMM dd, yyy"
-           return dateFormatter.string(from: episode.pubDate)
-       }
+        return episode.title
+    }
+    var description: String?{
+        return episode.description
+    }
+    var pubDate: String?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyy"
+        return dateFormatter.string(from: episode.pubDate)
+    }
     
 }
