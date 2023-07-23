@@ -16,7 +16,7 @@
 -  Third Party Library: ([Alamofire](https://github.com/Alamofire/Alamofire)). (The communication between the Network service and the app was established using Alamofire.) 
 -  XML parsing podcasts' meta information ([FeedKit](https://github.com/nmdias/FeedKit)).
 -  JSON parsing using `Codable`.
--  I used UserDefaults for downloads
+-  I used `UserDefaults` for downloads
 -  I did the recording and uninstalling of events using the `Core Data` structure
 -  Design Pattern: MVVM
 -  %100 Programmatic
