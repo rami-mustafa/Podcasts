@@ -12,7 +12,7 @@
 -  Downloading episodes for listening to without an Internet connection.
 
 ## Technologies
--  Networking REST API v3 ([Alamofire](https://github.com/Alamofire/Alamofire).
+-  Networking REST API v3 ([Alamofire])(https://github.com/Alamofire/Alamofire).
 -  JSON parsing using `Codable`.
 -  XML parsing podcasts' meta information ([FeedKit](https://github.com/nmdias/FeedKit)).
 -  Programmatically UI ([SnapKit](https://github.com/SnapKit/SnapKit)).
