@@ -9,15 +9,19 @@
 ## Features
 -  Searching for podcasts using iTunes API.
 -  Saving info about favorite podcasts on disk, so a user can see them offline.
+-  Can add to favourites, delete from favourites.
 -  Downloading episodes for listening to without an Internet connection.
 
 ## Technologies
 -  Third Party Library: ([Alamofire](https://github.com/Alamofire/Alamofire)). (The communication between the Network service and the app was established using Alamofire.) 
--  JSON parsing using `Codable`.
 -  XML parsing podcasts' meta information ([FeedKit](https://github.com/nmdias/FeedKit)).
+-  JSON parsing using `Codable`.
+-  I used UserDefaults for downloads
+-  I did the recording and uninstalling of events using the Core Data structure
 -  Design Pattern: MVVM
--  Fully Programmatic
+-  %100 Programmatic
 -  UIKit
+-  Auto Layout
 
 
   ## Installation and Use
