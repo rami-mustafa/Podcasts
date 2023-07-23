@@ -1,4 +1,4 @@
-# Podcast-swift
+# Podcasts swift
 
 - searching for available Podcasts on iTunes
 - bookmarking your favorite stations
