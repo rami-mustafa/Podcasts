@@ -17,7 +17,7 @@
 -  XML parsing podcasts' meta information ([FeedKit](https://github.com/nmdias/FeedKit)).
 -  JSON parsing using `Codable`.
 -  I used UserDefaults for downloads
--  I did the recording and uninstalling of events using the Core Data structure
+-  I did the recording and uninstalling of events using the `Core Data` structure
 -  Design Pattern: MVVM
 -  %100 Programmatic
 -  UIKit
