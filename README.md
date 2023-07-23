@@ -12,10 +12,13 @@
 -  Downloading episodes for listening to without an Internet connection.
 
 ## Technologies
--  Networking REST API v3 ([Alamofire](https://github.com/Alamofire/Alamofire)).
+-  Third Party Library: ([Alamofire](https://github.com/Alamofire/Alamofire)). (The communication between the Network service and the app was established using Alamofire.) 
 -  JSON parsing using `Codable`.
 -  XML parsing podcasts' meta information ([FeedKit](https://github.com/nmdias/FeedKit)).
--  Programmatically UI ([SnapKit](https://github.com/SnapKit/SnapKit)).
+-  Design Pattern: MVVM
+-  Fully Programmatic
+-  UIKit
+
 
   ## Installation and Use
 1. Clone this project from GitHub or download it as a ZIP.
