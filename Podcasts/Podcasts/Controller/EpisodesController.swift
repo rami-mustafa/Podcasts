@@ -67,7 +67,7 @@ class EpisodesController: UITableViewController {
 
 extension EpisodesController {
     fileprivate func fetchData() {
-        EpisodeServcie.fetchData(urlString: self.podcast.feedUrl!) { result in
+        EpisodeService.fetchData(urlString: self.podcast.feedUrl!) { result in
             DispatchQueue.main.async {
                 self.episodeResult = result
             }
@@ -147,6 +147,20 @@ extension EpisodesController{
         self.present(controller, animated: true)
         
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+           let downloadAction = UIContextualAction(style: .destructive, title: "Download") { action, view, completion in
+               UserDefaults.downloadEpisodeWrite(episode: self.episodeResult[indexPath.item])
+               EpisodeService.download(episode: self.episodeResult[indexPath.item])
+               let window = UIApplication.shared.connectedScenes.first as! UIWindowScene
+               let mainTabController = window.keyWindow?.rootViewController as! MainTabBarController
+               mainTabController.viewControllers?[2].tabBarItem.badgeValue = "New"
+               completion(true)
+           }
+           
+           let configuration = UISwipeActionsConfiguration(actions: [downloadAction])
+           return configuration
+       }
 }
 
 //MARK: - Selectors

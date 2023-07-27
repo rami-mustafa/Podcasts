@@ -7,8 +7,10 @@
 
 import Foundation
 import FeedKit
+import Alamofire
 
-struct EpisodeServcie {
+
+struct EpisodeService {
     
     static func fetchData(urlString: String , completion: @escaping([Episode]) -> Void ){
         var episodeResult: [Episode] = []
@@ -36,7 +38,26 @@ struct EpisodeServcie {
             }
         }
     }
-        
-}
-    
-
+    static func download(episode: Episode){
+         let downloadrequest = DownloadRequest.suggestedDownloadDestination()
+         AF.download(episode.streamUrl, to: downloadrequest).downloadProgress { progress in
+             let progressValue = progress.fractionCompleted
+     
+         }.response { response in
+             
+             var downloadEpisodeResponse = UserDefaults.downloadEpisodeRead()
+             let index = downloadEpisodeResponse.firstIndex(where: {$0.author == episode.author && $0.streamUrl == episode.streamUrl})
+             downloadEpisodeResponse[index!].fileUrl = response.fileURL?.absoluteString
+             do{
+                 let data = try JSONEncoder().encode(downloadEpisodeResponse)
+                 UserDefaults.standard.set(data, forKey: UserDefaults.downloadKey)
+             }catch{
+                 
+             }
+             
+             
+         }
+         
+         
+     }
+ }
