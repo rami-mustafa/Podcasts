@@ -10,7 +10,7 @@ private let reuseIdentifiew = "DownloadCell"
 class DownloadsViewController: UITableViewController {
     
     // MARK: - Properties
-        private var episodeResult = UserDefaults.downloadEpisodeRead()
+    private var episodeResult = UserDefaults.downloadEpisodeRead()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,11 @@ extension DownloadsViewController{
 }
 // MARK: - UITableViewDelegate
 extension DownloadsViewController{
-   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 134
-   }
- 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 134
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = PlayerViewController(episode: self.episodeResult[indexPath.item])
+        self.present(controller, animated: true)
+    }
 }
