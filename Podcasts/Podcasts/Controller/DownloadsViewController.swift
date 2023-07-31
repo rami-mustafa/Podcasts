@@ -15,6 +15,9 @@ class DownloadsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setNotificationCenter()
+
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,4 +59,18 @@ extension DownloadsViewController{
         let controller = PlayerViewController(episode: self.episodeResult[indexPath.item])
         self.present(controller, animated: true)
     }
+}
+
+// MARK: - Selectors
+extension DownloadsViewController{
+   @objc private func handleDownload(notification: Notification){
+       guard let response = notification.userInfo as? [String : Any] else { return }
+       guard let title = response["title"] as? String else { return }
+       guard let progressValue = response["progress"] as? Double else { return }
+       guard let index = self.episodeResult.firstIndex(where: {$0.title == title}) else{ return }
+       guard let cell = self.tableView.cellForRow(at: IndexPath(item: index, section: 0)) as? EpisodeCell else{ return }
+       }
+       
+   }
+
 }

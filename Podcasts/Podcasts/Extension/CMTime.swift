@@ -24,3 +24,7 @@ extension CMTime{
         return formatString
     }
 }
+
+extension NSNotification.Name{
+    static let downloadNotificationName = NSNotification.Name("downloadNotificationName")
+}
