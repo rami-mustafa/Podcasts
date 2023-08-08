@@ -16,7 +16,7 @@ class DownloadsViewController: UITableViewController {
         super.viewDidLoad()
         setup()
         setNotificationCenter()
-
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +31,11 @@ class DownloadsViewController: UITableViewController {
 
 // MARK: - Helpers
 extension DownloadsViewController{
+    
+    
+    private func setNotificationCenter(){
+          NotificationCenter.default.addObserver(self, selector: #selector(handleDownload), name: .downloadNotificationName, object: nil)
+      }
     
     private func setup(){
         view.backgroundColor = .white
@@ -63,14 +68,20 @@ extension DownloadsViewController{
 
 // MARK: - Selectors
 extension DownloadsViewController{
-   @objc private func handleDownload(notification: Notification){
-       guard let response = notification.userInfo as? [String : Any] else { return }
-       guard let title = response["title"] as? String else { return }
-       guard let progressValue = response["progress"] as? Double else { return }
-       guard let index = self.episodeResult.firstIndex(where: {$0.title == title}) else{ return }
-       guard let cell = self.tableView.cellForRow(at: IndexPath(item: index, section: 0)) as? EpisodeCell else{ return }
-       }
-       
-   }
-
+    @objc private func handleDownload(notification: Notification){
+        guard let response = notification.userInfo as? [String : Any] else { return }
+        guard let title = response["title"] as? String else { return }
+        guard let progressValue = response["progress"] as? Double else { return }
+        guard let index = self.episodeResult.firstIndex(where: {$0.title == title}) else{ return }
+        guard let cell = self.tableView.cellForRow(at: IndexPath(item: index, section: 0)) as? EpisodeCell else{ return }
+        cell.progressView.isHidden = false
+        cell.progressView.setProgress(Float(progressValue), animated: true)
+        if progressValue >= 1{
+            cell.progressView.isHidden = true
+        }
+    }
+    
+    
 }
+
+
