@@ -23,6 +23,15 @@
 -  UIKit
 -  Auto Layout
 
+  ## Screens
+  
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/baa1720a-362c-499c-91fc-ed16c039b51c" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/bf6393fa-7b8b-44f9-8065-024cd96bb512" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/ffbd3219-6764-4a77-8757-a99d41597c27" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/0b0f5331-68e0-4b0f-93db-82f09769b2f1" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/69b30041-3230-468d-b6e8-d39bc783e12f" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/dbe38ac3-0b73-47cb-a531-df4065a5b74e" width="250">
+<img src="https://github.com/rami-mustafa/Podcasts/assets/62889691/e8bdc4f7-e4bd-4e3d-9924-d27c85c49fcc" width="250">
 
   ## Installation and Use
 1. Clone this project from GitHub or download it as a ZIP.
