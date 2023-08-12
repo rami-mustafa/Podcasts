@@ -11,13 +11,12 @@ class DownloadsViewController: UITableViewController {
     
     // MARK: - Properties
     private var episodeResult = UserDefaults.downloadEpisodeRead()
+  
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setNotificationCenter()
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

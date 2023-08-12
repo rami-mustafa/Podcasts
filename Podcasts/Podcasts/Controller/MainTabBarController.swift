@@ -8,22 +8,14 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupPlayDetailsView()
         setup()
         
-        tabBar.tintColor = .purple
     }
- 
-    
-    //    MARK:  Setup Functions
-    
-     fileprivate func setupPlayDetailsView() {
-         print("Setting up PlayerDetailsView")
-     }
+
     
 }
 
@@ -33,19 +25,16 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController{
     
     
-
+    
     private func setup(){
-
-        let layout = UICollectionViewFlowLayout()
-        let favoritesController = FavoriteViewController(collectionViewLayout: layout)
+        
         
         viewControllers = [
-            createViewController(rootViewController: favoritesController , title: "Favorites", imageName: "heart.fill"),
+            createViewController(rootViewController: FavoriteViewController() , title: "Favorites", imageName: "heart.fill"),
             createViewController(rootViewController: SearchBarViewController() , title: "Search", imageName: "magnifyingglass"),
             createViewController(rootViewController: DownloadsViewController() , title: "Download", imageName: "square.and.arrow.down.on.square"),
-            
-            
         ]
+        tabBar.tintColor = .purple
     }
     
     private func createViewController (rootViewController: UIViewController , title: String , imageName: String) -> UINavigationController {

@@ -13,7 +13,7 @@ struct EpisodeCellViewModel {
         self.episode = episode
     }
     var profileImageUrl: URL?{
-        return URL(string: episode.imageUrl!)
+        return URL(string: episode.imageUrl)
     }
     
     var title: String?{

@@ -1,8 +1,4 @@
-//
-//  FavoriteViewController.swift
-//  Podcasts
-//
-//  Created by Ghaiath Alhereh on 13.07.23.
+
 
 import UIKit
 private let cellId = "cellId"
@@ -10,15 +6,19 @@ class FavoriteViewController: UICollectionViewController {
     
     
     // MARK: - Properties
-       private var resultCoreDataItems: [PodcastCoreData] = []{
-           didSet{ collectionView.reloadData() }
-       }
+    private var resultCoreDataItems: [PodcastCoreData] = []{
+        didSet{ collectionView.reloadData() }
+    }
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        let flowLayout = UICollectionViewFlowLayout()
+        super.init(collectionViewLayout: flowLayout)
         setup()
-        fetchData()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ extension FavoriteViewController{
 // MARK: - UICollectionViewDataSource
 extension FavoriteViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return resultCoreDataItems.count
+        return self.resultCoreDataItems.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FavoritePodcastCell
@@ -61,12 +61,12 @@ extension FavoriteViewController{
 }
 // MARK: - UICollectionViewDelegate
 extension FavoriteViewController{
-   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let podcastCoreData = self.resultCoreDataItems[indexPath.item]
-       let podcast = Podcast(trackName: podcastCoreData.trackName, artistName: podcastCoreData.artistName!,artworkUrl600: podcastCoreData.artworkUrl600,feedUrl: podcastCoreData.feedUrl)
-       let controller = EpisodesController(podcast: podcast)
-       self.navigationController?.pushViewController(controller, animated: true)
-   }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let podcastCoreData = self.resultCoreDataItems[indexPath.item]
+        let podcast = Podcast(trackName: podcastCoreData.trackName, artistName: podcastCoreData.artistName!,artworkUrl600: podcastCoreData.artworkUrl600,feedUrl: podcastCoreData.feedUrl)
+        let controller = EpisodesController(podcast: podcast)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 

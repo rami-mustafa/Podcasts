@@ -3,10 +3,12 @@
 import Foundation
 import CoreData
 import UIKit
+
  let appDelegate = UIApplication.shared.delegate as! AppDelegate
  let context = appDelegate.persistentContainer.viewContext
 
 struct CoreDataController {
+    
     static func addCoreData(model: PodcastCoreData, podcast: Podcast){
     
         model.feedUrl = podcast.feedUrl
